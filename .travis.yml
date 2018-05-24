@@ -1,0 +1,8 @@
+language: java
+deploy:
+  provider: releases
+  api_key:
+    secure: u7wveaO35NzB2/9LJlcK3YXuxU1fHZGod3EuV6RZfYKzhdoXjwsaapzapG/deN6GcYGgpPsWSWphb3gf+2eESxGBKpM53GolGo/ccVbYrhG/fpyagLZgnO3yPZq3msLiKyqUWO+DqRq3iLywBtfATnXJ4YA1neotx6u4Ky3KtfU2E8QOmyFUwVSEXDN8eXAv/i5ZieBCt98QrjWicz1uPwOG9pwDxyDtKoA3iQP4JLIk9RxtvyMsB3AwglqefuR80UzMY5I/Brn0Rb9Z1qPEWFw+FUSCfUfQtIrOejUsZCu89m5eJThm+upK3ydTEub6GnDfIaMmwmTW2Z2WHFfZgrekjx7HqSCdXnFrBp0uNzGGgOwv/rQTygPKH6SOed+a7Nu5+z+dmFIMWHbHgpLU4iXKcF+j0YXvw/wkge5qcG48CaFyXMizQcuSEhmQWuKblywOYnNouL+FM4REvzQ7MxO2RhWj8DHwjUoU9qijQ1ZvN89F4qjiPQFrEg9wyupGE3mzq6Tf01iQOSlSVKUJwuNog+PA+k+GGvC2DGp1EqUstnOs+KSOUxubqA21Wn74QVafHFICX5KMDn1O6VQiLePU/z7loVuRbiLJNpx/SIHQ5Uv6IRCjNrQkydIJX/oYL+nzGLVzRiFFs5nhtZExxxWNGW73NExHlmENuja1f10=
+  file: build/libs/*
+  on:
+    tags: true
