@@ -1,0 +1,36 @@
+apply plugin: 'java'
+apply plugin: 'application'
+
+mainClassName = 'com.whatswrong.Main'
+
+group 'com.whatswrong'
+version '1.0-RELEASE'
+
+ext {
+    aspectjVersion = "1.9.1"
+}
+
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+buildscript {
+    repositories {
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+    }
+    dependencies {
+        classpath "gradle.plugin.aspectj:gradle-aspectj:0.1.6"
+    }
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    compile group: 'org.aspectj', name: 'aspectjrt', version: project.ext.aspectjVersion
+}
+
+apply plugin: "aspectj.gradle"
