@@ -26,6 +26,14 @@ public class Rules {
         return new ValidationRule(value, new IntegerGreaterThanValidation(minValue), message);
     }
 
+    public static ValidationRule isTrue(Boolean value, String message) {
+        return new ValidationRule(value, new IsTrueValidation(), message);
+    }
+
+    public static ValidationRule isFalse(Boolean value, String message) {
+        return new ValidationRule(!value, new IsFalseValidation(), message);
+    }
+
     public static ValidationRule custom(Object value, Validation validation, String message) {
         return new ValidationRule(value, validation, message);
     }
