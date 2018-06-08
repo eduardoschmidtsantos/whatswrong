@@ -3,6 +3,10 @@ package com.whatswrong.builder;
 import com.whatswrong.exception.ValidationException;
 import com.whatswrong.validation.ValidationRule;
 
+import java.lang.Exception;
+import java.lang.NoSuchMethodException;
+
+import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -31,9 +35,17 @@ public class ValidationBuilder {
     }
 
     public void evaluateAndThrows() {
+        evaluateAndThrows(ValidationException.class);
+    }
+
+    public void evaluateAndThrows(Class<? extends RuntimeException> exception) {
         List<String> messages = evaluate();
         if (!messages.isEmpty()) {
-            throw new ValidationException(messages);
+            try {
+                throw exception.getDeclaredConstructor(String.class).newInstance(messages);
+            } catch (IllegalAccessException | InstantiationException | NoSuchMethodException | InvocationTargetException e) {
+                throw new RuntimeException("Invalid Exception");
+            }
         }
     }
 

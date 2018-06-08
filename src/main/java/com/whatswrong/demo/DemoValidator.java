@@ -21,6 +21,11 @@ public class DemoValidator implements Validator<Demo> {
             .add(Condiction.create(demo.getNumber() == null || demo.getNumber() <= 0).validate(Rules.notNull(demo.getObject(), "CONDICTIONAL")))
             .add(Rules.custom(demo, (object) -> demo.getNumber() == null || demo.getNumber() <= 0, "CUSTOM"))
             .evaluateAndThrows();
+
+        // You can use a different exception too
+        Validations.start()
+            .add(Rules.notNull(null, "NEEDS TO BE NOT NULL"))
+            .evaluateAndThrows(IllegalArgumentException.class);
     }
 
 }
