@@ -4,7 +4,7 @@ apply plugin: 'application'
 mainClassName = 'com.whatswrong.Main'
 
 group 'com.whatswrong'
-version '1.0-RELEASE'
+version '1.1.0-RELEASE'
 
 ext {
     aspectjVersion = "1.9.1"
