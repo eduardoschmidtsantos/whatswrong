@@ -42,7 +42,7 @@ public class ValidationBuilder {
         List<String> messages = evaluate();
         if (!messages.isEmpty()) {
             try {
-                throw exception.getDeclaredConstructor(String.class).newInstance(messages);
+                throw exception.getConstructor(String.class).newInstance(String.valueOf(messages));
             } catch (IllegalAccessException | InstantiationException | NoSuchMethodException | InvocationTargetException e) {
                 throw new RuntimeException("Invalid Exception");
             }

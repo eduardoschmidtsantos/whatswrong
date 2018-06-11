@@ -25,7 +25,7 @@ public class DemoValidator implements Validator<Demo> {
         // You can use a different exception too
         Validations.start()
             .add(Rules.notNull(null, "NEEDS TO BE NOT NULL"))
-            .evaluateAndThrows(IllegalArgumentException.class);
+            .evaluateAndThrows(NullPointerException.class);
     }
 
 }
